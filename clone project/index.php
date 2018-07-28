@@ -34,7 +34,34 @@
                     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="" id="menu">카테고리</a>
+                                    <div class="dropdown">
+                                        <a class="nav-link" href="" id = "menu">카테고리</a>
+                                        <div class="dropdown-content" id="content">
+                                          <div class="container">
+                                              <div class="row" >
+                                                  <div class="col-2" id="submenu">
+                                                      <a href="">blahblah</a>
+                                                      <a href="">blahblah</a>
+                                                      <a href="">blahblah</a>
+                                                      <a href="">blahblah</a>
+                                                  </div>
+                                                  <div class="col-4" id="submenu">
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
+                                                  </div>
+                                                  <div class="col-6" id="submenu">
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
+                                                </div>
+
+                                              </div>
+                                          </div>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="" id="menu">스토리</a>
@@ -59,7 +86,15 @@
                             </li>
                             <li class="nav-item">
                                     <span style="font-size:1.5rem;">
-                                <i class="fa fa-user"></i>
+                                    <div class="dropdown">
+                                        <i class="fa fa-user"><a class="nav-link" href="" id="menu"></a></i>
+                                        
+                                    <div class="dropdown-content">
+                                      <a href="register.php">회원가입</a>
+                                      <a href= "login.php">로그인</a>
+                                      <a href="#">Link 3</a>
+                                    </div>
+                                  </div>
                             </span>
                             </li>
                             <li class="nav-item">
@@ -224,6 +259,12 @@
 
                 </div>
             </section>
+            <footer>
+                    <img src="assets/img/004.png" width="350" >
+            </footer>
+                
+                   
+
     <script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>

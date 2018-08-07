@@ -1,3 +1,16 @@
+<?php 
+include('include/dbconfig.php'); 
+session_start();
+?>
+
+
+<?php
+if(isset($_SESSION['name'])){
+    header("Location: ./mypage.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,9 +103,16 @@
                                         <i class="fa fa-user"><a class="nav-link" href="" id="menu"></a></i>
                                         
                                     <div class="dropdown-content">
-                                      <a href="register.php">회원가입</a>
-                                      <a href="login.php">로그인</a>
-                                      <a href="#">Link 3</a>
+                                    <?php 
+                                      if (!isset($_SESSION['name'])){
+                                          echo '<a href="register.php">회원가입</a> <a href= "login.php">로그인</a>';
+                                      } 
+                                      ?>
+                                      <?php 
+                                      if (isset($_SESSION['name'])){
+                                          echo '<a href="mypage.php">마이페이지</a>';
+                                      } 
+                                      ?>
                                     </div>
                                   </div>
                             </span>
@@ -114,33 +134,34 @@
             </header>
 
             <section style="padding-top:150px; width:60%">
-                    <form>
+                    <form method="post" action="include/multi.php">
                         <div class="form-group">
                             <label for="exampleInputEmail1">이름</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이름">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <input name = "name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이름">
+                            
                             </div>
 
                             <div class="form-group">
                                     <label for="exampleInputEmail1">이메일</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일을 입력해주세요">
+                                    <input name="id" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일을 입력해주세요">
                                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">비밀번호</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호">
+                                <input name="pw" type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호">
                             </div>
 
                             <div class="form-group">
                                     <label for="exampleInputPassword1">비밀번호 확인</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호 다시 입력">
+                                    <input name="pw_re" type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호 다시 입력">
                                 </div> 
 
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
                             </div>
+                            <input type="hidden" name="cmd" value="1">
                             <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </section>

@@ -1,3 +1,9 @@
+<?php 
+include('include/dbconfig.php'); 
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,9 +96,18 @@
                                         <i class="fa fa-user"><a class="nav-link" href="" id="menu"></a></i>
                                         
                                     <div class="dropdown-content">
-                                      <a href="register.php">회원가입</a>
-                                      <a href= "login.php">로그인</a>
-                                      <a href="#">Link 3</a>
+                                      <?php 
+                                      if (!isset($_SESSION['name'])){
+                                          echo '<a href="register.php">회원가입</a> <a href= "login.php">로그인</a>';
+                                      } 
+                                      ?>
+                                      <?php 
+                                      if (isset($_SESSION['name'])){
+                                          echo '<a href="mypage.php">마이페이지</a>';
+                                      } 
+                                      ?>
+
+                                      
                                     </div>
                                   </div>
                             </span>
